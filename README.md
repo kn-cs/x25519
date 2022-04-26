@@ -16,10 +16,10 @@ To report a bug or make a comment regarding the implementations please drop a ma
 
 ### Overview of the implementations in the repository
 
-* **intel64-maa-4limb**: 4-limb 64-bit assembly implementation of X448 using the instructions ```mul/add/adc```. 
+* **intel64-maa-4limb**: 4-limb 64-bit assembly implementation of X25519 using the instructions ```mul/add/adc```. 
 
-* **intel64-mxaa-4limb**: 4-limb 64-bit assembly implementation of X448 using the instructions ```mulx/add/adc```.
+* **intel64-mxaa-4limb**: 4-limb 64-bit assembly implementation of X25519 using the instructions ```mulx/add/adc```.
 
-* **intel64-maax-4limb**: 4-limb 64-bit assembly implementation of X448 using the instructions ```mulx/adcx/adox```.
+* **intel64-maax-4limb**: 4-limb 64-bit assembly implementation of X25519 using the instructions ```mulx/adcx/adox```.
 
 ---    
