@@ -37,10 +37,11 @@
 
 INCDRS = -I../include/
 
-SRCFLS = ../source/curve25519_const.s 		\
-	 ../source/curve25519_mladder.s		\
+SRCFLS = ../source/curve25519_const.s 	\
+	 ../source/curve25519_mladder.s	\
 	 ../source/curve25519_mladder_base.s	\
 	 ../source/gf_p25519_mul.s 		\
+	 ../source/gf_p25519_sqr.s 		\
 	 ../source/gf_p25519_nsqr.s 		\
 	 ../source/gf_p25519_makeunique.s 	\
 	 ../source/gf_p25519_pack.c		\
@@ -48,10 +49,11 @@ SRCFLS = ../source/curve25519_const.s 		\
 	 ../source/curve25519_scalarmult.c	\
 	  ./curve25519_test.c
          
-OBJFLS = ../source/curve25519_const.o 		\
-	 ../source/curve25519_mladder.o		\
+OBJFLS = ../source/curve25519_const.o 	\
+	 ../source/curve25519_mladder.o	\
 	 ../source/curve25519_mladder_base.o	\
 	 ../source/gf_p25519_mul.o 		\
+	 ../source/gf_p25519_sqr.o 		\
 	 ../source/gf_p25519_nsqr.o 		\
 	 ../source/gf_p25519_makeunique.o 	\
 	 ../source/gf_p25519_pack.o		\
@@ -61,14 +63,13 @@ OBJFLS = ../source/curve25519_const.o 		\
 
 EXE    = curve25519_test
 
-#CFLAGS = -march=haswell -mtune=haswell -m64 -O3 -funroll-loops -fomit-frame-pointer
-CFLAGS = -march=skylake -mtune=skylake -m64 -O3 -funroll-loops -fomit-frame-pointer
+CFLAGS = -march=native -mtune=native -m64 -O3 -funroll-loops -fomit-frame-pointer
 
-CC     = gcc
-LL     = gcc
+CC     = gcc-10
+LL     = gcc-10
 
 $(EXE): $(OBJFLS)
-	$(LL) -o $@ $(OBJFLS) -lm -no-pie
+	$(LL) -o $@ $(OBJFLS) -lm
 
 .c.o:
 	$(CC) $(INCDRS) $(CFLAGS) -o $@ -c $<
