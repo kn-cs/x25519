@@ -42,10 +42,9 @@
 #include "basic_types.h"
 #include "gf_p25519_type.h"
 
-#define gfp25519sqr(x,y) gfp25519nsqr(x,y,1)
-
 extern void gfp25519mul(gfe_p25519 *, const gfe_p25519 *, const gfe_p25519 *);
 extern void gfp25519nsqr(gfe_p25519 *, const gfe_p25519 *, const uchar8);
+extern void gfp25519sqr(gfe_p25519 *, const gfe_p25519 *);
 extern void gfp25519reduce(gfe_p25519 *);
 extern void gfp25519makeunique(gfe_p25519 *);
 
