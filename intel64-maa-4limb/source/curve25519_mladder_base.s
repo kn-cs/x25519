@@ -1279,25 +1279,25 @@ movq    %rcx,296(%rsp)
 movq    %rsi,304(%rsp)
 
 // T4 ← ((A + 2)/4) · T3
-movq    $121666,%rax
+movq    a24(%rip),%rax
 mulq    %rbx
 movq    %rax,%r8
 movq    %rdx,%r9
 
 movq    $0,%r10
-movq    $121666,%rax
+movq    a24(%rip),%rax
 mulq    %rbp
 addq    %rax,%r9
 adcq    %rdx,%r10
 
 movq    $0,%r11
-movq    $121666,%rax
+movq    a24(%rip),%rax
 mulq    %rcx
 addq    %rax,%r10
 adcq    %rdx,%r11
 
 movq    $0,%r12
-movq    $121666,%rax
+movq    a24(%rip),%rax
 mulq    %rsi
 addq    %rax,%r11
 adcq    %rdx,%r12
