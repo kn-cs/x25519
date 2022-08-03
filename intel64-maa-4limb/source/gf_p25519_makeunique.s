@@ -39,41 +39,41 @@
 .globl gfp25519makeunique
 gfp25519makeunique:
 
-movq    %rsp, %r11
-subq    $16, %rsp
+movq    %rsp,%r11
+subq    $16,%rsp
 
-movq    %r11, 0(%rsp)
-movq    %r12, 8(%rsp)
+movq    %r11,0(%rsp)
+movq    %r12,8(%rsp)
 
-movq    0(%rdi), %r8
-movq    8(%rdi), %r9
-movq    16(%rdi), %r10
-movq    24(%rdi), %r11
+movq    0(%rdi),%r8
+movq    8(%rdi),%r9
+movq    16(%rdi),%r10
+movq    24(%rdi),%r11
 
-movq    %r8, %rax
-movq    %r9, %rcx
-movq    %r10, %rdx
-movq    %r11, %rsi
+movq    %r8,%rax
+movq    %r9,%rcx
+movq    %r10,%rdx
+movq    %r11,%rsi
 
-subq    p0, %r8
-sbbq    p12, %r9
-sbbq    p12, %r10
-sbbq    p3, %r11
+subq    p0(%rip),%r8
+sbbq    p12(%rip),%r9
+sbbq    p12(%rip),%r10
+sbbq    p3(%rip),%r11
 
-movq    %r11, %r12
-shlq    $1, %r12
+movq    %r11,%r12
+shlq    $1,%r12
 
-cmovc   %rax, %r8
-cmovc   %rcx, %r9
-cmovc   %rdx, %r10
-cmovc   %rsi, %r11
+cmovc   %rax,%r8
+cmovc   %rcx,%r9
+cmovc   %rdx,%r10
+cmovc   %rsi,%r11
 
-movq   	%r8, 0(%rdi)
-movq   	%r9, 8(%rdi)
-movq   	%r10, 16(%rdi)
-movq   	%r11, 24(%rdi)
+movq    %r8,0(%rdi)
+movq    %r9,8(%rdi)
+movq    %r10,16(%rdi)
+movq    %r11,24(%rdi)
 
-movq    8(%rsp), %r12
-movq    0(%rsp), %rsp
+movq    8(%rsp),%r12
+movq    0(%rsp),%rsp
 
 ret
